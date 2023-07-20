@@ -165,9 +165,81 @@ const drawings = {
     "n138",
     "n139",
   ],
+  Bricks: [
+    "n0",
+    "n1",
+    "n6",
+    "n7",
+    "n8",
+    "n9",
+    "n10",
+    "n11",
+    "n16",
+    "n17",
+    "n18",
+    "n19",
+    "n20",
+    "n21",
+    "n26",
+    "n27",
+    "n28",
+    "n29",
+    "n50",
+    "n51",
+    "n52",
+    "n53",
+    "n54",
+    "n60",
+    "n61",
+    "n62",
+    "n63",
+    "n64",
+    "n70",
+    "n71",
+    "n72",
+    "n73",
+    "n74",
+    "n80",
+    "n81",
+    "n82",
+    "n83",
+    "n84",
+    "n87",
+    "n88",
+    "n89",
+    "n97",
+    "n98",
+    "n99",
+    "n107",
+    "n108",
+    "n109",
+    "n120",
+    "n121",
+    "n122",
+    "n123",
+    "n124",
+    "n130",
+    "n131",
+    "n132",
+    "n133",
+    "n134",
+    "n140",
+    "n141",
+    "n142",
+    "n143",
+    "n144",
+  ],
 };
 
-document.querySelector("#remove-all-btn").addEventListener("click", removeAll);
+let blurRadius = "55";
+let outbreakRadius = "13";
+
+const blurRadiusInput = document.querySelector("#blur-radius-input-number");
+const outbreakRadiusInput = document.querySelector(
+  "#radius-of-the-outbreak-input-number"
+);
+blurRadiusInput.value = blurRadius;
+outbreakRadiusInput.value = outbreakRadius;
 
 for (i = 0; i < 150; i++) {
   const cube = document.createElement("div");
@@ -191,6 +263,21 @@ artSelects.forEach((artSelectBtn) => {
     drawing(drawings[e.target.textContent]);
   });
 });
+
+document.querySelector("#remove-all-btn").addEventListener("click", removeAll);
+
+blurRadiusInput.addEventListener("input", changeVisibleParam);
+outbreakRadiusInput.addEventListener("input", changeVisibleParam);
+document.querySelector("#blur-reset").addEventListener("click", function () {
+  blurRadius = "55";
+  blurRadiusInput.value = blurRadius;
+});
+document
+  .querySelector("#outbreak-reset")
+  .addEventListener("click", function () {
+    outbreakRadius = "13";
+    outbreakRadiusInput.value = outbreakRadius;
+  });
 
 // Functions
 function colorized(e) {
@@ -230,7 +317,6 @@ function scoreFunc() {
 
 function drawing(coords) {
   coords.forEach((coord) => {
-    let coordColor = getRandHex();
     setLight(app.querySelector(`.${coord}`));
   });
 }
@@ -238,7 +324,7 @@ function drawing(coords) {
 function setLight(cubick) {
   let cubickColor = getRandHex();
   cubick.style.background = cubickColor;
-  cubick.style.boxShadow = `0px 0px 55px 13px ${cubickColor}`;
+  cubick.style.boxShadow = `0px 0px ${blurRadius}px ${outbreakRadius}px ${cubickColor}`;
   cubick.classList.add("colorized");
 }
 
@@ -261,4 +347,9 @@ function allDark() {
   cubes.forEach((cubi) => {
     setDark(cubi);
   });
+}
+
+function changeVisibleParam() {
+  blurRadius = blurRadiusInput.value;
+  outbreakRadius = outbreakRadiusInput.value;
 }
