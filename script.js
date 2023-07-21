@@ -229,10 +229,82 @@ const drawings = {
     "n143",
     "n144",
   ],
+  Spiral: [
+    "n10",
+    "n11",
+    "n12",
+    "n13",
+    "n14",
+    "n15",
+    "n16",
+    "n17",
+    "n18",
+    "n20",
+    "n28",
+    "n30",
+    "n32",
+    "n33",
+    "n34",
+    "n35",
+    "n36",
+    "n38",
+    "n40",
+    "n42",
+    "n46",
+    "n48",
+    "n50",
+    "n52",
+    "n54",
+    "n56",
+    "n58",
+    "n60",
+    "n62",
+    "n64",
+    "n66",
+    "n68",
+    "n70",
+    "n72",
+    "n74",
+    "n76",
+    "n78",
+    "n80",
+    "n82",
+    "n84",
+    "n86",
+    "n88",
+    "n90",
+    "n92",
+    "n94",
+    "n96",
+    "n98",
+    "n100",
+    "n102",
+    "n104",
+    "n106",
+    "n108",
+    "n110",
+    "n112",
+    "n114",
+    "n115",
+    "n116",
+    "n118",
+    "n120",
+    "n122",
+    "n128",
+    "n130",
+    "n132",
+    "n133",
+    "n134",
+    "n135",
+    "n136",
+    "n137",
+    "n138",
+    "n140",
+  ],
 };
 
 let blurRadius = "55";
-let outbreakRadius = "13";
+let outbreakRadius = "2";
 
 const blurRadiusInput = document.querySelector("#blur-radius-input-number");
 const outbreakRadiusInput = document.querySelector(
@@ -278,6 +350,22 @@ document
     outbreakRadius = "13";
     outbreakRadiusInput.value = outbreakRadius;
   });
+
+// Animations
+document.querySelector(".settings-ico").addEventListener("click", function () {
+  document
+    .querySelector(".settings-ico")
+    .classList.toggle("settings-ico-active");
+  document
+    .querySelector(".settings-wrap")
+    .classList.toggle("settings-wrap-active");
+});
+
+document.querySelector(".open-left-btn").addEventListener("click", function () {
+  document
+    .querySelector(".left-menu-wrapper")
+    .classList.toggle("left-menu-wrapper-active");
+});
 
 // Functions
 function colorized(e) {

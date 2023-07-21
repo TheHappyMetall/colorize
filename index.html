@@ -5,41 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="favico.png" type="image/x-icon" />
     <title>Colorize</title>
   </head>
+
   <body>
     <div id="logo">colorized</div>
     <div id="score">0</div>
-
+    <img class="ico settings-ico" src="svg/settings.svg" />
     <div id="app-wrapper">
       <div id="app"></div>
     </div>
+    <img src="svg/art.svg" class="ico open-left-btn" />
+    <img src="svg/reload.svg" class="ico removeAll-ico" id="remove-all-btn" />
 
-    <div id="bottom-panel">
-      <div class="dropdown">
-        <span class="drop-btn btn">Arts</span>
-        <div class="dropdown-content-cont">
-          <p class="dropdown-content art-select">Circle</p>
-          <p class="dropdown-content art-select">Rectangle</p>
-          <p class="dropdown-content art-select">HorizontalLines</p>
-          <p class="dropdown-content art-select">Bricks</p>
-        </div>
+    <div class="left-menu-wrapper">
+      <p class="art-select">Circle</p>
+      <p class="art-select">Rectangle</p>
+      <p class="art-select">HorizontalLines</p>
+      <p class="art-select">Bricks</p>
+      <p class="art-select">Spiral</p>
+    </div>
+
+    <div class="settings-wrap">
+      <div class="settings-input-cont">
+        <div id="blur-reset" class="text-reset">Blur radius:</div>
+        <input
+          type="number"
+          class="number-input"
+          id="blur-radius-input-number"
+        />
       </div>
 
-      <span class="btn" id="remove-all-btn">RemoveAll</span>
-
-      <div class="dropdown">
-        <span class="drop-btn btn">Settings</span>
-        <div class="dropdown-content-cont">
-          <p class="dropdown-input">
-            <span id="blur-reset" class="text-reset">Blur radius:</span>
-            <input type="number" class="number-input" id="blur-radius-input-number">
-          </p>
-          <p class="dropdown-input">
-            <span id="outbreak-reset" class="text-reset">Radius of the outbreak:</span>
-            <input type="number" class="number-input" id="radius-of-the-outbreak-input-number">
-          </p>
+      <div class="settings-input-cont">
+        <div id="outbreak-reset" class="text-reset">
+          Radius of the outbreak:
         </div>
+        <input
+          type="number"
+          class="number-input"
+          id="radius-of-the-outbreak-input-number"
+        />
       </div>
     </div>
 
